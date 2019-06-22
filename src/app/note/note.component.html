@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Create Note</h1>
+      <hr>
+      <input [(ngModel)]="note.title" type="text" class="form-control">
+      <hr>
+      <textarea [(ngModel)]="note.description" class="form-control"></textarea>
+      <hr>
+      <button class="btn btn-primary" [disabled]="!readyToSubmit()" (click)="onSubmit()">Create Note</button>
+    </div>
+    <div class="col-sm">
+      <h1>View Notes</h1>
+      <hr>
+      <div *ngFor="let note of notes" class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{note.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{note.dateCreated}}</h6>
+          <p class="card-text">{{note.description}}</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
