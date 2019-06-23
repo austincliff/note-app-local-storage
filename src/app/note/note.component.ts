@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from './note';
-import { setFirstTemplatePass } from '@angular/core/src/render3/state';
 
 @Component({
   selector: 'app-note',
