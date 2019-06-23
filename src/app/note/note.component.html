@@ -7,18 +7,20 @@
       <hr>
       <textarea [(ngModel)]="note.description" class="form-control"></textarea>
       <hr>
-      <button class="btn btn-primary" [disabled]="!readyToSubmit()" (click)="onSubmit()">Create Note</button>
+      <button class="btn btn-primary" [disabled]="!readyToSubmit()" (click)="onSubmit()"
+        (click)="localStorage()">Create Note</button>
+      <hr>
     </div>
+    <!--Displays Notes from local storage-->
     <div class="col-sm">
       <h1>View Notes</h1>
       <hr>
-      <div *ngFor="let note of notes" class="card" style="width: 18rem;">
+      <div *ngFor="let note of notes; let i = index" class="card">
         <div class="card-body">
           <h5 class="card-title">{{note.title}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{note.dateCreated}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{note.dateCreated | date: short}}</h6>
           <p class="card-text">{{note.description}}</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          <button class="btn btn-danger" (click)="deleteNote(i)" (click)="localStorage()">Delete Note</button>
         </div>
       </div>
     </div>
